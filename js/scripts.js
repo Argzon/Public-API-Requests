@@ -29,10 +29,10 @@ function openModal (index) {
                 <img class="modal-img" src="${currentUser.picture.large}" alt="profile picture">
                 <h3 id="name" class="modal-name cap">${currentUser.name.first} ${currentUser.name.last}</h3>
                 <p class="modal-text">${currentUser.email}</p>
-                <p class="modal-text cap">city</p>
+                <p class="modal-text cap">${currentUser.location.city}</p>
                 <hr>
                 <p class="modal-text">(555) 555-5555</p>
-                <p class="modal-text">123 Portland Ave., Portland, OR 97204</p>
+                <p class="modal-text">${+currentUser.location.street.number} ${currentUser.location.street.name}, ${currentUser.location.country}, ${currentUser.location.postcode}</p>
                 <p class="modal-text">Birthday: ${currentUser.dob.date}</p>
             </div>
         </div>
@@ -98,6 +98,11 @@ function searchInput() {
 }
 searchInput();
 
+
+/**
+ * Event Listeners
+ */
+
 search.addEventListener('submit', (e) => {
     e.preventDefault();
     const searchInput = document.getElementById('search-input');
@@ -108,7 +113,3 @@ search.addEventListener('submit', (e) => {
     console.log("", usersList[0].name.first);
     
 })
-
-/**
- * Event Listeners
- */
