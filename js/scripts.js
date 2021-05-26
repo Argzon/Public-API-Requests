@@ -31,9 +31,9 @@ function openModal (index) {
                 <p class="modal-text">${currentUser.email}</p>
                 <p class="modal-text cap">${currentUser.location.city}</p>
                 <hr>
-                <p class="modal-text">(555) 555-5555</p>
+                <p class="modal-text">${formatPhoneNumber(currentUser.cell)}</p>
                 <p class="modal-text">${+currentUser.location.street.number} ${currentUser.location.street.name}, ${currentUser.location.country}, ${currentUser.location.postcode}</p>
-                <p class="modal-text">Birthday: ${currentUser.dob.date}</p>
+                <p class="modal-text">Birthday: ${currentUser.dob.date.slice(5, 7)}/${currentUser.dob.date.slice(8, 10)}/${currentUser.dob.date.slice(0, 4)}</p>
             </div>
         </div>
         
@@ -98,6 +98,15 @@ function searchInput() {
 }
 searchInput();
 
+// Format phone number
+function formatPhoneNumber(phoneNumberString) {
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+    }
+    return null;
+  }
 
 /**
  * Event Listeners
