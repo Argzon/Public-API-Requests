@@ -20,7 +20,6 @@ fetch(url)
 function openModal (index) {
     currentModal = index;
     const currentUser = usersList[currentModal];
-    console.log("user", currentUser);
     const userInfo = `
     <div class="modal-container" onclick="closeModal()">
         <div class="modal">
@@ -49,7 +48,6 @@ function openModal (index) {
 
 function closeModal () {
     const modal = document.querySelector(".modal-container");
-
     document.querySelector('body').removeChild(modal)
 }
 
@@ -100,8 +98,8 @@ searchInput();
 
 // Format phone number
 function formatPhoneNumber(phoneNumberString) {
-    var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
-    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    const cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
     if (match) {
       return '(' + match[1] + ') ' + match[2] + '-' + match[3];
     }
