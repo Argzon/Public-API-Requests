@@ -10,7 +10,7 @@ This is a random user generator from https://randomuser.me/ where we basically g
   - Image has light border
   - Text color changed
 - Modal Window
-  - Close btn modified
+  - Close button modified
   - Next and Prev buttons background and text color changed
 
 ### Live Preview
